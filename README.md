@@ -29,7 +29,7 @@ Dataset: https://docs.google.com/spreadsheets/d/11ZrzUkh3NupJhXmMYBG_x4Iou8jru9r
 
 Put and image of your UML Diagram here. Upload the image of your UML Diagram to your repository, then use the Markdown syntax to insert your image here. Make sure your image file name is one work, otherwise it might not properly get display on this README.
 
-![UML Diagram for my project](nameOfImageFileHere.png)
+![Copy of (Unit 4) UML Diagram](https://github.com/user-attachments/assets/fb14e479-e740-4abc-8f54-c37dd08d7f99)
 
 ## Video Demo
 
@@ -41,7 +41,7 @@ Record a short video of your abstract art animation to display here on your READ
 - Upload the thumbnail image to your repo.
 - Use the following markdown
 
-[![youtube-URL-here](https://youtube.com/shorts/5MDUlC0qqxg)
+[![Thumbnail for my project](images/thumbnail.png)](https://youtube.com/shorts/5MDUlC0qqxg)
 
 ## Description
 

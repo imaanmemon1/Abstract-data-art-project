@@ -43,3 +43,4 @@ Record a short video of your abstract art animation to display here on your READ
 
 ## Description
 
+My project is designed as a rollercoaster visualization tool. Users select a rollercoaster by entering its index, and the program shows its name, speed, park, city, and country. The program uses the Scanner class for input and calculates the fastest and average speeds to display messages like "Fastest Roller Coaster!" Scenes with text, images, and sounds make the experience interactive for users. I made this project because I love rollercoasters and how extreme they are.

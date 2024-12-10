@@ -1,50 +1,45 @@
 import org.code.theater.*;
-import java.util.Random;
 
 /**
  * The DataScene class extends the Scene class to visualize roller coaster data.
- * It uses 1D arrays to store coaster names and speeds, calculates statistical data 
- * such as averages and maximum speeds, and generates visual scenes with detailed 
- * information about steel and wooden roller coasters.
+ * It uses 1D arrays to store coaster names, amusement park names, cities, countries, 
+ * and calculates statistical data such as average speeds.
  */
 public class DataScene extends Scene {
     // Arrays to hold coaster data
-    private double[] steelSpeeds;
-    private double[] woodSpeeds;
-    private String[] steelNames;
-    private String[] woodNames;
+    private double[] speeds;
+    private String[] rollercoasterNames;
+    private String[] amusementParkNames;
+    private String[] cities;
+    private String[] countries;
     private String[] textColors;
 
     // Statistical variables for coaster speeds
-    private double steelAverage;
-    private double steelFastest;
-    private double woodAverage;
-    private double woodFastest;
+    private double averageSpeed;
+    private double fastestSpeed;
 
-    // Constants for image paths
-    private static final String WOOD_IMAGE = "woodcoaster1.jpg";
-    private static final String STEEL_IMAGE = "yellowRollercoaster.jpg";
+    // Constants for image paths (you can customize these)
+    private static final String COASTER_IMAGE = "coasterImage.jpg";
 
     /**
      * Constructor for initializing the DataScene object with the given data arrays.
      */
-    public DataScene(double[] steelSpeeds, String[] steelNames, double[] woodSpeeds, String[] woodNames, String[] colors) {
-        this.steelSpeeds = steelSpeeds;
-        this.steelNames = steelNames;
-        this.woodSpeeds = woodSpeeds;
-        this.woodNames = woodNames;
+    public DataScene(double[] speeds, String[] rollercoasterNames, String[] amusementParkNames, String[] cities, String[] countries, String[] colors) {
+        this.speeds = speeds;
+        this.rollercoasterNames = rollercoasterNames;
+        this.amusementParkNames = amusementParkNames;
+        this.cities = cities;
+        this.countries = countries;
         this.textColors = colors;
-        getAverageAndFastest(); // Compute averages and fastest speeds
+        calculateStatistics(); // Compute averages and fastest speeds
     }
 
     /**
-     * Calculates the average and fastest speeds for both steel and wooden coasters.
+     * Calculates the average and fastest speeds for the coasters.
      */
-    private void getAverageAndFastest() {
-        steelFastest = findMax(steelSpeeds);
-        steelAverage = findAverage(steelSpeeds);
-        woodFastest = findMax(woodSpeeds);
-        woodAverage = findAverage(woodSpeeds);
+    private void calculateStatistics() {
+        fastestSpeed = findMax(speeds);
+        averageSpeed = findAverage(speeds);
     }
 
     /**
@@ -70,46 +65,23 @@ public class DataScene extends Scene {
     }
 
     /**
-     * Displays details for a steel coaster, including its name, speed, and a 
-     * message indicating its performance.
+     * Displays details for a roller coaster, including its name, speed, amusement park, city, and country.
      */
-    public void showSteelCoasterDetails(int index) {
-        String message = getSteelMessage(index);
-        drawCoasterDetails("Steel Rollercoaster", message, steelNames[index], steelSpeeds[index], STEEL_IMAGE, "silver");
+    public void showCoasterDetails(int index) {
+        String message = getMessage(index);
+        drawCoasterDetails("Roller Coaster", message, rollercoasterNames[index], speeds[index], amusementParkNames[index], cities[index], countries[index], COASTER_IMAGE, "silver");
     }
 
     /**
-     * Displays details for a wooden coaster, including its name, speed, and a 
-     * message indicating its performance.
+     * Generates a message for the roller coaster based on its speed.
      */
-    public void showWoodenCoasterDetails(int index) {
-        String message = getWoodMessage(index);
-        drawCoasterDetails("Wooden Rollercoaster", message, woodNames[index], woodSpeeds[index], WOOD_IMAGE, "brown");
-    }
-
-    /**
-     * Generates a message for a steel coaster based on its speed.
-     */
-    private String getSteelMessage(int index) {
-        if (steelSpeeds[index] == steelFastest) {
-            return "Fastest Steel Roller Coaster!!";
-        } else if (steelSpeeds[index] > steelAverage || steelSpeeds[index] > woodFastest) {
-            return "Go go go!!!!!!!!";
+    private String getMessage(int index) {
+        if (speeds[index] == fastestSpeed) {
+            return "Fastest Roller Coaster!!";
+        } else if (speeds[index] > averageSpeed) {
+            return "Amazing Speed!!";
         } else {
-            return "Yeehaw";
-        }
-    }
-
-    /**
-     * Generates a message for a wooden coaster based on its speed.
-     */
-    private String getWoodMessage(int index) {
-        if (woodSpeeds[index] == woodFastest) {
-            return "Fastest Wooden Roller Coaster!!";
-        } else if (woodSpeeds[index] > woodAverage || woodSpeeds[index] > steelFastest) {
-            return "Hands up!!";
-        } else {
-            return "Zoom";
+            return "Great Ride!";
         }
     }
 
@@ -117,7 +89,7 @@ public class DataScene extends Scene {
      * Draws detailed information about a coaster, including its title, message, 
      * name, speed, and associated visual elements.
      */
-    private void drawCoasterDetails(String title, String message, String name, double speed, String image, String color) {
+    private void drawCoasterDetails(String title, String message, String name, double speed, String parkName, String city, String country, String image, String color) {
         drawImage(image, 0, 0, 450);
         setFillColor(color);
         drawRectangle(0, 0, 410, 50);
@@ -130,32 +102,26 @@ public class DataScene extends Scene {
         setTextHeight(18);
         drawText(name, 20, 350);
         drawText("Speed: " + Math.round(speed), 20, 375);
-        playSound(speed > steelAverage ? "steel.wav" : "Zoom.wav");
+        drawText("Park: " + parkName, 20, 400);
+        drawText("City: " + city, 20, 425);
+        drawText("Country: " + country, 20, 450);
+        playSound(speed > averageSpeed ? "fast.wav" : "slow.wav");
         pause(2);
     }
 
     /**
-     * Iterates through all coasters to create visual scenes for both steel and 
-     * wooden roller coasters.
+     * Iterates through all coasters to create visual scenes.
      */
     public void createScene() {
-        for (int i = 0; i < steelSpeeds.length; i++) {
-            createSteelScene(i);
-            createWoodenScene(i);
+        for (int i = 0; i < speeds.length; i++) {
+            createCoasterScene(i);
         }
     }
 
     /**
-     * Creates a scene for a specific wooden coaster.
+     * Creates a scene for a specific roller coaster.
      */
-    public void createWoodenScene(int index) {
-        drawCoasterDetails("Wooden Rollercoaster", getWoodMessage(index), woodNames[index], woodSpeeds[index], WOOD_IMAGE, "brown");
-    }
-
-    /**
-     * Creates a scene for a specific steel coaster.
-     */
-    public void createSteelScene(int index) {
-        drawCoasterDetails("Steel Rollercoaster", getSteelMessage(index), steelNames[index], steelSpeeds[index], STEEL_IMAGE, "silver");
+    public void createCoasterScene(int index) {
+        drawCoasterDetails("Roller Coaster", getMessage(index), rollercoasterNames[index], speeds[index], amusementParkNames[index], cities[index], countries[index], COASTER_IMAGE, "silver");
     }
 }

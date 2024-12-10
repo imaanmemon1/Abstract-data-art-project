@@ -6,33 +6,30 @@ public class TheaterRunner {
        /**
          * Read data from files
         */
-        String[] steelNamesArray = FileReader.toStringArray("steelNames.txt");
-        String[] woodNamesArray = FileReader.toStringArray("woodNames.txt");
-        double[] steelSpeedsArray = FileReader.toDoubleArray("steelSpeeds.txt");
-        double[] woodSpeedsArray = FileReader.toDoubleArray("woodSpeeds.txt");
-        String[] colorsArray = { "red", "blue", "black", "green", "purple" };
+        // Reading the new data from different files
+        String[] rollercoasterNames = FileReader.toStringArray("rollercoasterNames.txt");
+        String[] amusementParkNames = FileReader.toStringArray("amusementParkNames.txt");
+        String[] cities = FileReader.toStringArray("cities.txt");
+        String[] countries = FileReader.toStringArray("countries.txt");
 
-      /**
+        // Example data for speeds (just placeholders, you can replace with your own data)
+        double[] speeds = {75, 80, 85, 90, 95};
+
+        // Example colors (can be random or fixed)
+        String[] colorsArray = { "red", "blue", "green", "yellow", "purple" };
+
+        /**
          * Create a DataScene object
         */
-
-        DataScene myDataScene = new DataScene(steelSpeedsArray, steelNamesArray, woodSpeedsArray, woodNamesArray, colorsArray);
+        DataScene myDataScene = new DataScene(speeds, rollercoasterNames, amusementParkNames, cities, countries, colorsArray);
 
         // User interaction to choose coaster type and index
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Choose a coaster type: 1 for Steel, 2 for Wooden");
-        int coasterType = scanner.nextInt();
-        System.out.println("Enter the index of the coaster (0 to " + (steelSpeedsArray.length - 1) + "):");
+        System.out.println("Enter the index of the roller coaster (0 to " + (rollercoasterNames.length - 1) + "):");
         int index = scanner.nextInt();
 
         // Display chosen coaster's details
-        if (coasterType == 1) {
-            myDataScene.showSteelCoasterDetails(index);
-        } else if (coasterType == 2) {
-            myDataScene.showWoodenCoasterDetails(index);
-        } else {
-            System.out.println("Invalid choice. Displaying all scenes.");
-        }
+        myDataScene.showCoasterDetails(index);
 
         // Create and play scenes
         myDataScene.createScene();

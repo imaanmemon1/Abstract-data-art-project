@@ -19,17 +19,13 @@ Use your knowledge of object-oriented programming, one-dimensional (1D) arrays, 
 
 Dataset: https://docs.google.com/spreadsheets/d/11ZrzUkh3NupJhXmMYBG_x4Iou8jru9rVX_ejEZHgXqM/edit?usp=sharing
 
-- steelNamesArray (String array) - Names of steel roller coasters.
-- woodNamesArray (String array) - Names of wooden roller coasters.
-- steelSpeedsArray (double array) - Speeds of steel roller coasters.
-- woodSpeedsArray (double array) - Speeds of wooden roller coasters.
-- colorsArray (String array) - A set of colors used for visual elements in the data scene.
+
 
 ## UML Diagram
 
 Put and image of your UML Diagram here. Upload the image of your UML Diagram to your repository, then use the Markdown syntax to insert your image here. Make sure your image file name is one work, otherwise it might not properly get display on this README.
 
-![Copy of (Unit 4) UML Diagram](https://github.com/user-attachments/assets/fb14e479-e740-4abc-8f54-c37dd08d7f99)
+
 
 ## Video Demo
 
@@ -41,8 +37,6 @@ Record a short video of your abstract art animation to display here on your READ
 - Upload the thumbnail image to your repo.
 - Use the following markdown
 
-[![Thumbnail for my project](images/thumbnail.png)](https://youtube.com/shorts/5MDUlC0qqxg)
 
 ## Description
 
-My project is a data visualization tool for roller coaster enthusiasts, using object-oriented programming, 1D arrays, and algorithms to compare steel and wooden coaster speeds. The program processes datasets of coaster names and speeds, calculating averages and identifying the fastest rides. Users interact through the Scanner class, selecting coaster types and indices to view specific details like speed and performance messages. Visualization includes scenes with images, colo coded text, and sounds, created using methods from the Math class and modular design.

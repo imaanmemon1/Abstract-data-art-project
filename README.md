@@ -19,12 +19,16 @@ Use your knowledge of object-oriented programming, one-dimensional (1D) arrays, 
 
 Dataset: https://docs.google.com/spreadsheets/d/11ZrzUkh3NupJhXmMYBG_x4Iou8jru9rVX_ejEZHgXqM/edit?usp=sharing
 
-
+countries(String) - names of countries the roller coasters are in
+cities(String) - names of cities the roller coasters are in
+rollercoasterNames(String) - names of the rollercoaster
+amusementParkNames(String) - names of the amusement park
 
 ## UML Diagram
 
 Put and image of your UML Diagram here. Upload the image of your UML Diagram to your repository, then use the Markdown syntax to insert your image here. Make sure your image file name is one work, otherwise it might not properly get display on this README.
 
+![Copy of (Unit 4) UML Diagram (1)](https://github.com/user-attachments/assets/0df45f2a-f883-470b-8743-028711d46445)
 
 
 ## Video Demo

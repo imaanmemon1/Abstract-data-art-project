@@ -37,7 +37,7 @@ Record a short video of your abstract art animation to display here on your READ
 - Upload the thumbnail image to your repo.
 - Use the following markdown
 
-[![Thumbnail for my projet](Screenshot 2024-12-10 at 11.08.55 AM.png)](https://youtu.be/KKS_RlBw95c)
+[![Thumbnail for my projet](<img width="281" alt="Screenshot 2024-12-10 at 11 08 55 AM" src="https://github.com/user-attachments/assets/31373ffa-1ae9-4c57-9a43-3f078892a311">)](https://youtu.be/KKS_RlBw95c)
 
 
 
